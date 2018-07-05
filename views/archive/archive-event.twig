@@ -1,0 +1,32 @@
+{% extends 'base/base.twig' %}
+
+{% block site_content %}
+  <div class="container pt-6 pb-2">
+    <h1 class="pb-5 text-secondary-color">{{ title }}</h1>
+
+    <div class="row">
+      {% for post in posts %}
+        <div class="col-lg-4 col-sm-6 mb-6 event-item">
+          <a><img class="image-width" src="{{ post.thumbnail.src|resize(400, 250) }}"></a>
+          
+          <div class="bg-pink-color text-secondary-color p-4">
+            <h2 class="pb-3"><a class="text-secondary-color event-title" href="{{ post.link }}">{{ post.title }}</a></h2>
+
+            <p>{{ post.start_datetime|date('G:i, d-m-Y') }}</p>
+            <address>{{ post.location.address }}</address>
+          </div>
+
+          <div class="bg-secondary-color text-right py-2">
+            <span class="text-uppercase text-primary-color">
+              View<a href="{{ post.link }}" class="pl-2 pr-3 view-event">{% include 'assets/images/Logo/play-arrow.svg' %}</a>
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="pb-6 d-flex justify-content-center">
+    {% include 'pagination/pagination.twig' with { pagination: pagination } %}
+  </div>
+{% endblock %}

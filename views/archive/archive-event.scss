@@ -1,0 +1,11 @@
+.event-item {
+
+  .view-event,
+  .event-title {
+    text-decoration: none;
+  }
+
+  .view-event polygon:hover {
+    fill: $white;
+  }
+}

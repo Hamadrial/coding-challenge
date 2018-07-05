@@ -1,0 +1,58 @@
+{#
+ # Template for the site footer.
+ #}
+
+<footer class="site-footer bg-primary-color text-secondary-color py-5">
+  <section class="site-footer-content container">
+    <div class="row">
+      <div class="col-lg-3 col-sm-6 pb-2">
+        {% if footer_contact %}
+          {{ footer_contact }}
+        {% endif %}
+      </div>
+
+      <div class="col-lg-6 col-sm-6 pb-2">
+        {% if footer_menu %}
+          {{ footer_menu }}
+        {% endif %}
+      </div>
+
+      <div class="col-lg-3 col-sm-6 pb-2">
+        <a href="{{ site.url }}">
+          {% include 'assets/images/Logo/Eventgrab_logo.svg' %}
+        </a>
+
+        <ul class="mt-4">
+          <li class="d-inline">
+            <a target="_blank" class="some-icon text-decoration-none" href="https://www.facebook.com/">
+              {% include 'assets/images/Logo/facebook-logo.svg' %}
+            </a>
+          </li>
+
+          <li class="d-inline p-1">
+            <a target="_blank" class="some-icon text-decoration-none" href="https://www.linkedin.com/">
+              {% include 'assets/images/Logo/linkedin-logo.svg' %}
+            </a>
+          </li>
+
+          <li class="d-inline pr-1">
+            <a target="_blank" class="some-icon text-decoration-none" href="https://twitter.com/">
+              {% include 'assets/images/Logo/twitter-logo.svg' %}
+            </a>
+          </li>
+
+          <li class="d-inline">
+            <a target="_blank" class="some-icon text-decoration-none" href="https://www.instagram.com/">
+              {% include 'assets/images/Logo/instagram-logo.svg' %}
+            </a>
+          </li>
+        </ul>
+      </div>
+  </div>
+  </section>
+
+  <section class="site-footer-credits container text-center">
+    {{ __('&copy; %1$s %2$s.', 'coding-challenge-theme')|format(("now"|date('Y')), 'Company') }}
+    {{ __('Crafted by <a href="https://pixels.fi" rel="nofollow" target="_blank">Pixels</a>.', 'coding-challenge-theme') }}
+  </section>
+</footer>

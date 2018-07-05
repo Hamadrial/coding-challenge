@@ -1,0 +1,38 @@
+{% extends 'base/base.twig' %}
+
+{% block site_content %}
+  <div class="container">
+    <header class="single-header">
+      <div class="single-header-bg-image overlay white" style="background-image: url('{{ post.thumbnail.src('hero-image') }}')"></div>
+
+      <h1 class="single-header-title text-secondary-color">{{ post.title }}</h1>
+
+      <div class="bg-secondary-color text-primary-color py-2 event-date">
+        {{ post.start_datetime|date('l d-m-Y') }}
+      </div>
+    </header>
+
+    <section class="text-center py-6 text-secondary-color gutter">
+      <h2 class="mb-5">About the event</h2>
+
+      <p>{{ post.content }}</p>
+    </section>
+
+    <section class="row bg-gray-100 mb-5">
+      <div class="col-lg-8">
+        <div id="map" style="height:400px" data-lat="{{post.location.lat}}" data-lng="{{post.location.lng}}">
+        </div>
+      </div>
+      <div class="col-lg-4 p-3">
+        <h2 class="text-secondary-color">Location</h2>
+        {{post.location.address}}
+      </div>
+    </section>
+    
+    <section class="gutter mb-5">
+      <h2 class="text-secondary-color text-center">Good to know</h2>
+      {{post.get_field('additional_information')}}
+    </section>
+    
+  </div>
+{% endblock %}

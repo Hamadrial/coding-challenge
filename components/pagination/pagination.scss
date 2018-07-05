@@ -1,0 +1,33 @@
+.pagination {
+
+  .page-item.active .page-link {
+    color: $secondary-color;
+    background-color: $white;
+
+    &::after {
+      border-bottom: 5px solid $primary-color;
+      bottom: -3px;
+      content: " ";
+      left: 0;
+      right: 0;
+      position: absolute;
+    }
+
+    &:hover {
+      color: $primary-color;
+    }
+  }
+
+  .page-link {
+    border: none;
+
+    &:hover {
+      color: $primary-color;
+      background-color: $white;
+    }
+  }
+
+  .page-link path:hover {
+    fill: $primary-color;
+  }
+}
